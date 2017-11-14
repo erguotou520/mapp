@@ -1,0 +1,29 @@
+/**
+ * margin和padding
+ */
+size = 8px 16px 24px 32px
+map = {
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+}
+
+for i in 0..3
+  for key, value in map
+    .m{key}-{j}
+      margin-{value} size[j]
+    .p{key}-{j}
+      padding-{value} size[j]
+    .mx-{j}
+      margin-left: size[j]
+      margin-right: size[j]
+    .my-{j}
+      margin-top: size[j]
+      margin-bottom: size[j]
+    .px-{j}
+      padding-left: size[j]
+      padding-right: size[j]
+    .mx-{j}
+      padding-left: size[j]
+      padding-right: size[j]
