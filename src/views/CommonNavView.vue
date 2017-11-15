@@ -1,5 +1,5 @@
 <template>
-  <div class="common-nav-view flex-1 d-flex flex-column">
+  <div class="common-nav-view flex-1 flex flex-column">
     <router-transition></router-transition>
     <m-tabbar router :value="$route.path">
       <m-tabbar-item index="/" label="首页">&#xe64f;</m-tabbar-item>

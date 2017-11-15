@@ -2,9 +2,17 @@ export default {
   props: {
     value: [String, Number, Object]
   },
+  data () {
+    return { index: this.value !== undefined ? this.value : -1 }
+  },
   computed: {
-    actived () {
-      return this.value === this.$parent.value
+    selected () {
+      return this.index === this.$parent.activedIndex
+    }
+  },
+  methods: {
+    setIndex (index) {
+      this.index = index
     }
   },
   created () {

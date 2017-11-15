@@ -1,12 +1,12 @@
 <template>
-  <div v-show="maskShow" class="mask-bg d-flex flex-column flex-ai-center flex-jc-center">
+  <div v-show="maskShow" class="mask-bg flex flex-column flex-ai-center flex-jc-center">
     <transition name="confirm">
       <div v-show="value" class="modal">
-        <div class="modal-body d-flex flex-column flex-ai-center flex-jc-center">
+        <div class="modal-body flex flex-column flex-ai-center flex-jc-center">
           <p class="modal-title">{{title}}</p>
           <p v-if="content" class="modal-content">{{content}}</p>
         </div>
-        <div class="modal-btns d-flex flex-ai-center flex-jc-center">
+        <div class="modal-btns flex flex-ai-center flex-jc-center">
           <button class="cancel text-center" @click="cancel">取消</button>
           <button class="ok text-center" @click="ok">确定</button>
         </div>
@@ -54,7 +54,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import "../assets/styles/variable.styl"
+@import "../../assets/styles/variable.styl"
 .modal
   min-width 560px
   max-width 640px

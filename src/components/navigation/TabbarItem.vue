@@ -1,5 +1,5 @@
 <template>
-  <div class="tabbar-item flex-1 d-flex flex-column flex-ai-center flex-jc-center"
+  <div class="tabbar-item flex-1 flex flex-column flex-ai-center flex-jc-center"
     :class="[actived?'actived':'']" @click="onClick">
     <span v-if="!$slots.normal&&$parent&&$parent.imageType==='iconfont'"
       class="icon-font" :style="{fontFamily}">
@@ -26,21 +26,16 @@ export default {
       default: 'iconfont'
     }
   },
-  data () {
-    return {
-      parent: null
-    }
-  },
   computed: {
     actived () {
-      return this.parent && this.parent.value === this.index
+      return this.$parent && this.$parent.value === this.index
     }
   },
   methods: {
     onClick () {
-      if (this.parent) {
-        this.parent.selectBar(this.index)
-        if (this.$router && this.parent.router) {
+      if (this.$parent) {
+        this.$parent.selectBar(this.index)
+        if (this.$router && this.$parent.router) {
           this.$router.push(this.index)
         } else {
           this.$emit('click')
@@ -48,28 +43,20 @@ export default {
       }
     }
   },
-  created () {
-    let parent = this.$parent
-    while (parent.$parent && parent.$options._componentTag !== 'm-tabbar') {
-      parent = parent.$parent
-    }
-    if (parent.$options._componentTag !== 'm-tabbar') {
-      return console.error('m-tabbar-item不能单独使用')
-    }
-    this.parent = parent
-  },
   beforeDestroy () {
-    this.parent && this.parent.removeBar(this)
+    this.$parent && this.$parent.removeBar(this)
   }
 }
 </script>
 <style lang="stylus" scoped>
-@import "../assets/styles/variable.styl"
+@import "../../assets/styles/variable.styl"
 .tabbar-item
   height 88px
   color $color-text-minor
+  // font-weight bold
   &.actived
     color $color-primary
+    text-shadow: 0 0 20px rgba($color-primary, .3)
   .icon-font
     font-size 36px
   .text

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="d-flex flex-column bg-white">
+  <div id="app" class="flex flex-column bg-white">
     <router-view></router-view>
     <m-toast :value="$store.toast.show" :message="$store.toast.message"></m-toast>
     <m-confirm :value="$store.confirm.show" :title="$store.confirm.title" :content="$store.confirm.content"

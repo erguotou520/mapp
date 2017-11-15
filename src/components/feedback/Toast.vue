@@ -1,7 +1,7 @@
 <template>
   <transition name="toast">
     <div class="c-toast-wrapper" v-show="value">
-      <span class="toast d-flex-inline flex-row flex-ai-center">{{message}}</span>
+      <span class="toast flex-inline flex-row flex-ai-center">{{message}}</span>
     </div>
   </transition>
 </template>

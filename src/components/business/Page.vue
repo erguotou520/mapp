@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 d-flex flex-column" :class="[name?`page-${name}`:'']">
+  <div class="flex-1 flex flex-column" :class="[name?`page-${name}`:'']">
     <slot></slot>
   </div>
 </template>

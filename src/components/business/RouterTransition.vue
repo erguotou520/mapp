@@ -1,5 +1,5 @@
 <template>
-  <div class="router-transition d-flex flex-1 flex-column">
+  <div class="router-transition flex flex-1 flex-column">
     <transition v-if="$route.meta.keepAlive" :name="transitionName">
       <keep-alive>
         <router-view :key="$route.path"></router-view>
