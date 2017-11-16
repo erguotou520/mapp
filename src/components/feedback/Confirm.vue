@@ -1,9 +1,9 @@
 <template>
   <div v-show="maskShow" class="mask-bg flex flex-column flex-ai-center flex-jc-center">
     <transition name="confirm">
-      <div v-show="value" class="modal">
-        <div class="modal-body flex flex-column flex-ai-center flex-jc-center">
-          <p class="modal-title">{{title}}</p>
+      <div v-show="value" class="modal px-4 py-4">
+        <div class="modal-body flex flex-column flex-ai-center flex-jc-center mb-4">
+          <div class="modal-title text-secondary mb-3">{{title}}</div>
           <p v-if="content" class="modal-content">{{content}}</p>
         </div>
         <div class="modal-btns flex flex-ai-center flex-jc-center">
@@ -58,17 +58,8 @@ export default {
 .modal
   min-width 560px
   max-width 640px
-  padding 40px
   border-radius 8px
   background-color #fff
-.modal-body
-  min-height 96px
-  margin-bottom 40px
-.modal-title
-  font-size 32px
-  color $color-highlight
-.modal-content
-  font-size 24px
 .cancel
 .ok
   -webkit-appreance none
@@ -78,7 +69,6 @@ export default {
   border-radius 4px
 .cancel
   margin-right 20px
-  color $color-btn-minor
   background-color #e7ecf2
 .ok
   margin-left 20px

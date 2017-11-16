@@ -1,13 +1,13 @@
 <template>
-  <button class="btn t-c" :type="nativeType"
-    :class="['btn-tp-' + type, 'btn-sz-' + size, disabled ? 'btn-disabled' : '']"
+  <button class="btn flex-inline flex-jc-center flex-ai-center font-32" :type="nativeType"
+    :class="['btn-t-' + type, 'btn-s-' + size, disabled ? 'btn-disabled' : '']"
     @click="e => $emit('click', e)">
     <slot></slot>
   </button>
 </template>
 <script>
 export default {
-  name: 'u-button',
+  name: 'm-button',
   props: {
     disabled: {
       type: Boolean,
@@ -29,30 +29,22 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import "./var.styl"
+@import "../../assets/styles/variable.styl"
 .btn
-  width 100%
-  height 44px
-  line-height 42px
-  border-radius 4px
-  font-size 16px
-  font-weight 300
+  height 80px
+  border-radius 8px
   color #fff
   border none
-.btn-tp-primary
+.btn-t-primary
   background-color $color-primary
   &:active
     background-color darken($color-primary, 10%)
   &.btn-disabled
-    background-color rgba($color-primary, 0.52)
-.btn-tp-minor
-  background-color $color-btn-minor
+    background-color rgba($color-primary, 0.5)
+.btn-t-highlight
+  background-color $color-highlight
   &:active
-    background-color darken($color-btn-minor, 10%)
+    background-color darken($color-highlight, 10%)
   &.btn-disabled
-    background-color rgba($color-btn-minor, 0.52)
-.btn-tp-text
-  border-radius 0
-  color $color-text-primary
-  background-color transparent
+    background-color rgba($color-highlight, 0.5)
 </style>

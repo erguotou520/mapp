@@ -9,21 +9,29 @@ map = {
   l: left
 }
 
-for i in 0..3
+for j in 0..3
+  .mx-{j+1}
+    margin-left: size[j]
+    margin-right: size[j]
+  .my-{j+1}
+    margin-top: size[j]
+    margin-bottom: size[j]
+  .px-{j+1}
+    padding-left: size[j]
+    padding-right: size[j]
+  .py-{j+1}
+    padding-top: size[j]
+    padding-bottom: size[j]
   for key, value in map
-    .m{key}-{j}
+    .m{key}-{j+1}
       margin-{value} size[j]
-    .p{key}-{j}
+    .p{key}-{j+1}
       padding-{value} size[j]
-    .mx-{j}
-      margin-left: size[j]
-      margin-right: size[j]
-    .my-{j}
-      margin-top: size[j]
-      margin-bottom: size[j]
-    .px-{j}
-      padding-left: size[j]
-      padding-right: size[j]
-    .mx-{j}
-      padding-left: size[j]
-      padding-right: size[j]
+
+.mx-auto
+  margin-left auto
+  margin-right auto
+.ml-auto
+  margin-left auto
+.mr-auto
+  margin-right auto

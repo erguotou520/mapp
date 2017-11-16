@@ -49,5 +49,6 @@ export default {
 @import "../../assets/styles/variable.styl"
 .tabbar
   position relative
-  box-shadow 0 -1px 20px rgba($color-primary, .3)
+  border-top 1px solid rgba($color-primary, .1)
+  // box-shadow 0 -1px 20px rgba($color-primary, .3)
 </style>

@@ -5,6 +5,7 @@ export default {
   data () {
     return {
       children: [],
+      // 不设置时从1开始
       activedIndex: this.value !== undefined ? this.value : -1
     }
   },

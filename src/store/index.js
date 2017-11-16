@@ -4,8 +4,7 @@ const bus = new Vue({
   data: {
     toast: {
       show: false,
-      icon: '',
-      content: ''
+      message: ''
     },
     confirm: {
       show: false,

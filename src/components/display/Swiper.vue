@@ -1,18 +1,10 @@
-<template>
-  <div class="swiper-container flex flex-row">
-    <slot></slot>
-    <div class="indicators">
-      <span class="indicator"></span>
-    </div>
-  </div>
-</template>
 <script>
 import parent from '../parent'
 export default {
   name: 'm-swiper',
   mixins: [parent],
   props: {
-    showIndicators: {
+    showDots: {
       type: Boolean,
       default: true
     },
@@ -27,21 +19,19 @@ export default {
   },
   data () {
     return {
-      targetIndex: -1
+      timer: null
     }
   },
   computed: {
-    // 当前页
-    currentPage () {
-      if (this.children.length && this.activedIndex > -1) {
-        return this.children[this.activedIndex]
+    loopItems () {
+      const ret = this.children.slice()
+      if (this.children.length < 3) {
+        ret.push(ret[0])
       }
-    },
-    // 即将前往的页面
-    targetPage () {
-      if (this.children.length && this.targetIndex > -1) {
-        return this.children[this.targetIndex]
+      if (this.children.length < 3) {
+        ret.push(ret[0])
       }
+      return ret.splice(ret.length, 0, ...ret.splice(0, this.activedIndex))
     }
   },
   methods: {
@@ -50,13 +40,35 @@ export default {
       this.activedIndex++
     }
   },
+  render (h) {
+    return h('div', {
+      'class': 'swiper flex over-hide'
+    }, [
+      h('div', {
+        'class': 'swiper-items flex-1 flex flex-row',
+        'style': {
+          transform: `translate3d(${-100 * (this.activedIndex - 1)}%, 0, 0)`
+        }
+      }, this.loopItems.map(item => item.$slots.default)), h('div', {
+        'class': 'indicators'
+      }, [h('span', { class: 'indicator' })])
+    ])
+  },
   mounted () {
     this.$nextTick(() => {
-      this.next()
-    }, this.interval)
+      this.timer = setInterval(() => {
+        this.next()
+      }, this.interval)
+    })
+  },
+  beforeDestroy () {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
   }
 }
 </script>
 <style lang="stylus" scoped>
-
+.swiper-items
+  transition all .3s ease-in-out
 </style>

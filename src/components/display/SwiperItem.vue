@@ -1,5 +1,5 @@
 <template>
-  <div v-show="selected||index===$parent.targetIndex" class="swiper-item">
+  <div class="swiper-item">
     <slot></slot>
   </div>
 </template>
@@ -11,5 +11,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-
+.swiper-item
+  flex 0 0 auto
+  width 100%
 </style>

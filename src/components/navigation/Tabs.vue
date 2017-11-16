@@ -4,7 +4,7 @@
       <span v-for="tab in tabs" class="tab flex-1" :class="[tab.value===value? 'tab-active' : '']" @click="selectTab(tab)">{{tab.label}}</span>
       <div class="line" ref="line" :style="{width: `${100/tabs.length}%`, transform: `translateX(${this.activeIndex * 100}%)`}"></div>
     </div>
-    <div class="tab-content flex-1 scrollable">
+    <div class="tab-content flex-1 scroll-y">
       <slot></slot>
     </div>
   </div>

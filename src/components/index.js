@@ -6,8 +6,12 @@ import Toast from './feedback/Toast'
 import Confirm from './feedback/Confirm'
 import Swiper from './display/Swiper'
 import SwiperItem from './display/SwiperItem'
+import Cell from './form/Cell'
+import CellGroup from './form/CellGroup'
+import Button from './form/Button'
 import RouterTransition from './business/RouterTransition'
 import Page from './business/Page'
+import CircleBg from './business/CircleBg'
 
 const components = {
   Tabbar,
@@ -16,8 +20,12 @@ const components = {
   Confirm,
   Swiper,
   SwiperItem,
+  Cell,
+  CellGroup,
+  Button,
   RouterTransition,
-  Page
+  Page,
+  CircleBg
 }
 
 Object.keys(components).forEach(key => {

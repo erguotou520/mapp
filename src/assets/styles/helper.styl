@@ -1,3 +1,4 @@
+@import './variable.styl'
 .mask-bg
   position fixed
   left 0
@@ -7,11 +8,23 @@
   background-color rgba(0, 0, 0, .6)
   z-index 100
 
-.scrollable
-  overflow-x hidden
+.scroll-x
+  overflow-x auto
+.scroll-y
   overflow-y auto
+.scroll-xy
+  overflow-x auto
+  overflow-y auto
+.over-hide
+  overflow hidden
 
 .t-ellipsis
   overflow hidden
   white-space nowrap
   text-overflow ellipsis
+
+.shadow-card
+  padding 20px
+  background-color #fff
+  border-radius 8px
+  box-shadow 0 10px 40px 2px rgba($color-primary, .5)
