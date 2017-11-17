@@ -39,6 +39,7 @@ export default {
 <style lang="stylus" scoped>
 .router-transition
   position relative
+  overflow-x hidden
   overflow-y auto
   > [class*=-enter]
   > [class*=-leave]

@@ -52,11 +52,12 @@ export default {
 @import "../../assets/styles/variable.styl"
 .tabbar-item
   height 88px
-  color $color-text-minor
+  color $color-text-secondary
   // font-weight bold
   &.actived
     color $color-primary
-    text-shadow: 0 0 20px rgba($color-primary, .3)
+    // FIXME: Android chrome no effect
+    text-shadow 0 2px 20px rgba($color-primary, .3)
   .icon-font
     font-size 36px
   .text

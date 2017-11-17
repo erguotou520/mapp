@@ -1,10 +1,22 @@
 <template>
   <page name="home">
     <div class="scroll-y pb-1">
-      <m-swiper class="swiper">
-        <m-swiper-item class="bg-white flex flex-jc-center flex-ai-center">这是内容1</m-swiper-item>
-        <m-swiper-item class="bg-white flex flex-jc-center flex-ai-center">这是内容2</m-swiper-item>
-        <m-swiper-item class="bg-white flex flex-jc-center flex-ai-center">这是内容3</m-swiper-item>
+      <m-swiper loop class="swiper" direction="horizontal">
+        <m-swiper-item>
+          <a href="https://s.click.taobao.com/MDEWtXw" target="_blank">
+            <img src="https://img.alicdn.com/tfs/TB101ZQdgoQMeJjy0FnXXb8gFXa-440-180.jpg" width="100%">
+          </a>
+        </m-swiper-item>
+        <m-swiper-item>
+          <a href="https://s.click.taobao.com/BOdTtXw" target="_blank">
+            <img src="https://img.alicdn.com/tfs/TB1NMo_mwoQMeJjy1XaXXcSsFXa-440-180.jpg" width="100%">
+          </a>
+        </m-swiper-item>
+        <m-swiper-item>
+          <a href="https://s.click.taobao.com/94QTtXw" target="_blank">
+            <img src="https://gw.alicdn.com/tfs/TB1QDoGdgoQMeJjy0FnXXb8gFXa-440-180.jpg" width="100%">
+          </a>
+        </m-swiper-item>
       </m-swiper>
       <div class="flex flex-row flex-jc-center flex-ai-center bg-white mt-1 px-3 py-3">
         <div class="nav-item flex-1 flex flex-column flex-jc-center flex-ai-center">
@@ -83,7 +95,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../assets/styles/variable.styl'
 .swiper
-  height 360px
+  height 307px
 .nav-circle
   width 92px
   height @width

@@ -4,13 +4,11 @@
   </div>
 </template>
 <script>
-import child from '../child'
 export default {
-  name: 'm-swiper-item',
-  mixins: [child]
+  name: 'm-swiper-item'
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 .swiper-item
   flex 0 0 auto
   width 100%
