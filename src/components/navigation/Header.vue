@@ -1,13 +1,13 @@
 <template>
-  <div class="header flex flex-row flex-between flex-main-center"
+  <div class="header px-3 pos-r flex flex-row flex-jc-between flex-ai-center"
     :class="['bg-' + type]">
-    <div class="left flex-1 flex flex-cross-center">
-      <span v-if="showBack" class="gift icon-back" @click="back"></span>
+    <div class="flex flex-cross-center">
+      <span v-if="showBack" class="iconfont icon-back font-30" @click="back"></span>
       <span v-else-if="!$slots.left">&nbsp;</span>
       <slot name="left"></slot>
     </div>
-    <span class="title"><slot></slot></span>
-    <div class="right flex-1 flex flex-cross-center flex-main-end">
+    <div class="title font-32 flex flex-row flex-jc-center flex-ai-center"><slot></slot></div>
+    <div class="right flex flex-ai-center flex-jc-end">
       <span v-if="!$slots.right">&nbsp;</span>
       <slot v-else name="right"></slot>
     </div>
@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: 'u-header',
+  name: 'm-header',
   props: {
     type: {
       type: String,
@@ -47,22 +47,17 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import "./var.styl"
+// @import "../../assets/styles/variable.styl"
 .header
-  height 44px
-  padding 0 10px
+  height 88px
   color #fff
-.bg-primary
-  background-color $color-primary
-.left
-.right
-  .gift
-    font-size 18px
 .title
-  flex 4
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0
+  width 100%
+  height 100%
   color #fff
-  font-size 16px
-  font-weight 300
-  line-height 44px
-  text-align center
 </style>
