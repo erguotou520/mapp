@@ -1,8 +1,8 @@
 <template>
-  <transition :name="'popup-'+effect">
-    <div v-if="value" class="popup flex flex-column" :class="['position-'+effect,full?'full':'']">
-      <div class="mask-bg"></div>
-      <div class="popup-content flex flex-1" v-clickoutside="()=>$emit('input',false)">
+  <transition :name="'popup-'+position">
+    <div v-if="value" class="popup flex flex-column" :class="['position-'+position,full?'full':'']">
+      <div class="mask-bg" @click="outsideClick"></div>
+      <div class="popup-content flex flex-column">
         <slot></slot>
       </div>
     </div>
@@ -10,18 +10,29 @@
 </template>
 <script>
 export default {
-  name: 'u-popup',
+  name: 'm-popup',
   props: {
     value: {
       type: Boolean,
       default: false
     },
-    effect: {
+    position: {
       type: String,
       default: 'bottom'
     },
     full: {
       type: Boolean
+    },
+    backdrop: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    outsideClick () {
+      if (this.backdrop) {
+        this.$emit('input', false)
+      }
     }
   }
 }
@@ -31,10 +42,6 @@ export default {
   position fixed
   z-index 11
   .popup-content
-    position absolute
-    left 0
-    top 0
-    bottom 0
     width 100%
     background-color #f9fafc
     z-index 101

@@ -3,6 +3,7 @@ import Validation from 'simple-vue-validator'
 import App from './App'
 import router from './router'
 import './components'
+import './directives'
 
 Vue.use(Validation)
 Vue.config.productionTip = false

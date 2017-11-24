@@ -6,6 +6,7 @@ import Toast from './feedback/Toast'
 import Confirm from './feedback/Confirm'
 import Swiper from './display/Swiper'
 import SwiperItem from './display/SwiperItem'
+import Popup from './display/Popup'
 import Cell from './form/Cell'
 import CellGroup from './form/CellGroup'
 import Button from './form/Button'
@@ -20,6 +21,7 @@ const components = {
   Confirm,
   Swiper,
   SwiperItem,
+  Popup,
   Cell,
   CellGroup,
   Button,
