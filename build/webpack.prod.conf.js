@@ -14,7 +14,7 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const loadMinified = require('./load-minified')
 
-const env = config.build.env
+const env = require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
   externals: {
@@ -28,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
@@ -39,22 +39,28 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
+    // UglifyJs do not support ES6+, you can also use babel-minify for better treeshaking: https://github.com/babel/minify
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: config.build.productionSourceMap,
+      parallel: true
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      // set the following option to `true` if you want to extract CSS from
+      // codesplit chunks into this main css file as well.
+      // This will result in *all* of your app's CSS being loaded upfront.
+      allChunks: false,
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
-      cssProcessorOptions: {
-        safe: true
-      }
+      cssProcessorOptions: config.build.productionSourceMap
+      ? { safe: true, map: { inline: false } }
+      : { safe: true }
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
@@ -75,10 +81,14 @@ const webpackConfig = merge(baseWebpackConfig, {
       serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname,
         './service-worker-prod.js'))}</script>`
     }),
+    // keep module.id stable when vender modules does not change
+    new webpack.HashedModuleIdsPlugin(),
+    // enable scope hoisting
+    new webpack.optimize.ModuleConcatenationPlugin(),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks: function (module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -93,8 +103,18 @@ const webpackConfig = merge(baseWebpackConfig, {
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['vendor']
+      minChunks: Infinity
     }),
+    // This instance extracts shared chunks from code splitted chunks and bundles them
+    // in a separate chunk, similar to the vendor chunk
+    // see: https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'app',
+      async: 'vendor-async',
+      children: true,
+      minChunks: 3
+    }),
+
     // copy custom static assets
     new CopyWebpackPlugin([
       {
