@@ -1,23 +1,24 @@
 <template>
-  <div class="input-field" :class="{'with-border':showBorder}">
-    <div v-if="$slots.left" class="left flex flex-main-center flex-cross-center">
+  <div class="m-input" :class="{'with-border':showBorder}">
+    <div v-if="$slots.left" class="input-left flex flex-js-center flex-ai-center">
       <slot name="left"></slot>
     </div>
     <input class="input" :class="[!!$slots.left ? 'with-left' : '', !!$slots.right ? 'with-right': '']"
-      :value="inputVal" v-bind="$props"
-      @input="handleInput"
+      :value="value" v-bind="$props"
+      @input="e=>$emit('input', e.target.value)"
+      @change="e=>$emit('change', e.target.value)"
       @focus="e=>$emit('focus', e)"
       @blur="e=>$emit('blur', e)"
       ref="input">
     </input>
-    <div v-if="$slots.right" class="right flex flex-main-center flex-cross-center">
+    <div v-if="$slots.right" class="input-right flex flex-jc-center flex-ai-center">
       <slot name="right"></slot>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'u-input',
+  name: 'm-input',
   props: {
     type: {
       type: String,
@@ -26,24 +27,11 @@ export default {
     value: [String, Number, Date],
     placeholder: String,
     showBorder: Boolean,
-    autofocus: true,
+    autofocus: Boolean,
     tabindex: String,
     readonly: Boolean
   },
-  data () {
-    return {
-      inputVal: this.value
-    }
-  },
-  watch: {
-    value (val) {
-      this.inputVal = val
-    }
-  },
   methods: {
-    handleInput (e) {
-      this.$emit('input', this.$refs.input.value)
-    },
     focus () {
       this.$refs.input.focus()
     },
@@ -53,46 +41,46 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-@import "./var.styl"
-$input-height = 36
-.input-field
+<style lang="stylus">
+@import "../../assets/styles/variable.styl"
+$input-height = 72
+.m-input
   position relative
   justify-content center
   &.with-border
     .input
       border 1px solid $color-disabled
-.left
-  position absolute
-  left 0
-  top 0
-  min-width ($input-height)px
-  height ($input-height)px
-.right
-  position absolute
-  right 0
-  top 0
-  min-width ($input-height)px
-  height ($input-height)px
-.input
-  width 100%
-  padding-left 10px
-  padding-right 10px
-  height ($input-height)px
-  font-size 14px
-  border-radius 2px
-  border none
-  border-bottom 1px solid $color-text-minor
-  background-color transparent
-  &:focus
-  &:active
-    border-color $color-primary
-    color $color-primary
-    placeholder-color $color-primary
-    &::-webkit-input-placeholder
+  .input-left
+    position absolute
+    left 0
+    top 0
+    min-width ($input-height)px
+    height ($input-height)px
+  .input-right
+    position absolute
+    right 0
+    top 0
+    min-width ($input-height)px
+    height ($input-height)px
+  .input
+    width 100%
+    padding-left 20px
+    padding-right 20px
+    height ($input-height)px
+    border-radius 4px
+    border none
+    border-bottom 1px solid $color-grey-5
+    background-color transparent
+    &:focus
+    &:active
+      border-color $color-primary
       color $color-primary
-.with-left
-  padding-left ($input-height)px
-.with-right
-  padding-right ($input-height)px
+      placeholder-color $color-primary
+      outline none
+      &::-webkit-input-placeholder
+        color $color-primary
+  .with-left
+    padding-left ($input-height)px
+  .with-right
+    padding-right ($input-height)px
 </style>

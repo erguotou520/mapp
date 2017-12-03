@@ -1,6 +1,6 @@
 <template>
   <transition :name="'popup-'+position">
-    <div v-if="value" class="popup flex flex-column" :class="['position-'+position,full?'full':'']">
+    <div v-if="value" class="m-popup flex flex-column" :class="['position-'+position,full?'full':'']">
       <div class="mask-bg" @click="outsideClick"></div>
       <div class="popup-content flex flex-column">
         <slot></slot>
@@ -37,8 +37,8 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.popup
+<style lang="stylus">
+.m-popup
   position fixed
   z-index 11
   .popup-content

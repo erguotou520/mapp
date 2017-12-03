@@ -36,7 +36,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 .router-transition
   position relative
   overflow-x hidden

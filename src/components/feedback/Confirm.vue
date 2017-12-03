@@ -1,5 +1,5 @@
 <template>
-  <div v-show="maskShow" class="mask-bg flex flex-column flex-ai-center flex-jc-center">
+  <div v-show="maskShow" class="m-confirm mask-bg flex flex-column flex-ai-center flex-jc-center">
     <transition name="confirm">
       <div v-show="value" class="modal px-4 py-4">
         <div class="modal-body flex flex-column flex-ai-center flex-jc-center mb-4">
@@ -53,25 +53,26 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import "../../assets/styles/variable.styl"
-.modal
-  min-width 560px
-  max-width 640px
-  border-radius 8px
-  background-color #fff
-.cancel
-.ok
-  -webkit-appreance none
-  height 84px
-  width 240px
-  border none
-  border-radius 4px
-.cancel
-  margin-right 20px
-  background-color #e7ecf2
-.ok
-  margin-left 20px
-  color #fff
-  background-color $color-primary
+.m-confirm
+  .modal
+    min-width 560px
+    max-width 640px
+    border-radius 8px
+    background-color #fff
+  .cancel
+  .ok
+    -webkit-appreance none
+    height 84px
+    width 240px
+    border none
+    border-radius 4px
+  .cancel
+    margin-right 20px
+    background-color #e7ecf2
+  .ok
+    margin-left 20px
+    color #fff
+    background-color $color-primary
 </style>

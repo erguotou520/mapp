@@ -1,5 +1,5 @@
 <template>
-  <div class="header px-3 pos-r flex flex-row flex-jc-between flex-ai-center"
+  <div class="m-header px-3 pos-r flex flex-row flex-jc-between flex-ai-center"
     :class="['bg-' + type]">
     <div class="flex flex-cross-center">
       <span v-if="showBack" class="iconfont icon-back font-30" @click="back"></span>
@@ -46,18 +46,18 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 // @import "../../assets/styles/variable.styl"
-.header
+.m-header
   height 88px
   color #fff
-.title
-  position absolute
-  left 0
-  right 0
-  top 0
-  bottom 0
-  width 100%
-  height 100%
-  color #fff
+  .title
+    position absolute
+    left 0
+    right 0
+    top 0
+    bottom 0
+    width 100%
+    height 100%
+    color #fff
 </style>

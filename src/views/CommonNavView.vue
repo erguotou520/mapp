@@ -22,6 +22,12 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-
+<style lang="stylus">
+.common-nav-view
+  padding-bottom 88px
+  .m-tabbar
+    position fixed
+    bottom 0
+    left 0
+    width 100%
 </style>

@@ -11,6 +11,8 @@ import Popup from './display/Popup'
 import Cell from './form/Cell'
 import CellGroup from './form/CellGroup'
 import Button from './form/Button'
+import Input from './form/Input'
+import Search from './form/Search'
 import RouterTransition from './business/RouterTransition'
 import Page from './business/Page'
 import CircleBg from './business/CircleBg'
@@ -27,6 +29,8 @@ const components = {
   Cell,
   CellGroup,
   Button,
+  Input,
+  Search,
   RouterTransition,
   Page,
   CircleBg

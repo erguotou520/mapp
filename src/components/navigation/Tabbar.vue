@@ -1,5 +1,5 @@
 <template>
-  <div class="tabbar flex flex-row flex-ai-center flex-jc-center bg-white">
+  <div class="m-tabbar flex flex-row flex-ai-center flex-jc-center bg-white">
     <slot></slot>
   </div>
 </template>
@@ -45,9 +45,9 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import "../../assets/styles/variable.styl"
-.tabbar
+.m-tabbar
   position relative
   border-top 1px solid rgba($color-primary, .1)
   // box-shadow 0 -1px 20px rgba($color-primary, .3)

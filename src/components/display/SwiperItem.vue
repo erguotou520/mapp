@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-item">
+  <div class="m-swiper-item">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-.swiper-item
+.m-swiper-item
   flex 0 0 auto
   width 100%
 </style>

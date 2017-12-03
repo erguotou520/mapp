@@ -1,6 +1,6 @@
 <!-- refer to: https://github.com/weilao/vue-swiper -->
 <template>
-  <div class="swiper pos-r over-hide" :class="[direction, {'dragging': dragging}]"
+  <div class="m-swiper pos-r over-hide" :class="[direction, {'dragging': dragging}]"
      @touchstart="_onTouchStart" @mousedown="_onTouchStart">
     <div class="flex swiper-wrap" ref="swiperWrap" @transitionend="_onTransitionEnd"
        :style="{
@@ -250,8 +250,8 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.swiper {
+<style lang="stylus">
+.m-swiper {
   .swiper-wrap {
     display: flex;
     width: 100%;

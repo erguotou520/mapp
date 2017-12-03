@@ -18,6 +18,9 @@
           </a>
         </m-swiper-item>
       </m-swiper>
+      <div class="bg-white mt-1">
+        <m-search v-model="search" placeholder="输入要搜索的商品、分类等"></m-search>
+      </div>
       <div class="flex flex-row flex-jc-center flex-ai-center bg-white mt-1 px-3 py-3">
         <div class="nav-item flex-1 flex flex-column flex-jc-center flex-ai-center">
           <div class="nav-circle flex flex-column flex-jc-center flex-ai-center">
@@ -90,6 +93,11 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+      search: ''
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

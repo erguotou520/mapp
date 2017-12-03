@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-column">
+  <div class="m-tabs flex flex-1 flex-column">
     <div class="tab-nav flex flex-row">
       <span v-for="tab in tabs" class="tab flex-1" :class="[tab.value===value? 'tab-active' : '']" @click="selectTab(tab)">{{tab.label}}</span>
       <div class="line" ref="line" :style="{width: `${100/tabs.length}%`, transform: `translateX(${this.activeIndex * 100}%)`}"></div>
@@ -43,28 +43,29 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-@import "./var.styl"
+<style lang="stylus">
+@import "../../assets/styles/variable.styl"
 $tab-height = 88px
-.tab-nav
-  position relative
-  height $tab-height
-.tab
-  flex 1
-  height $tab-height
-  line-height $tab-height
-  font-size 28px
-  text-align center
-  color $color-text-highlight
-.tab-active
-  color $color-primary
-.line
-  position absolute
-  bottom 0
-  left 0
-  height 2px
-  background-color $color-primary
-  transition all .3s ease-in-out
-.tab-content
-  padding-top 20px
+.m-tabs
+  .tab-nav
+    position relative
+    height $tab-height
+  .tab
+    flex 1
+    height $tab-height
+    line-height $tab-height
+    font-size 28px
+    text-align center
+    color $color-text-highlight
+  .tab-active
+    color $color-primary
+  .line
+    position absolute
+    bottom 0
+    left 0
+    height 2px
+    background-color $color-primary
+    transition all .3s ease-in-out
+  .tab-content
+    padding-top 20px
 </style>

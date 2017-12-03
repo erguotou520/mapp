@@ -1,5 +1,5 @@
 <template>
-  <div class="cell-group bg-white">
+  <div class="m-cell-group bg-white">
     <div v-if="title||$slots.left||$slots.right" class="cell-header px-3 py-2">
       <span v-if="!$slots.left&&title" class="text-grey font-24">{{title}}</span>
       <slot name="left"></slot>
@@ -17,6 +17,6 @@ export default {
 }
 </script>
 <style lang="stylus">
-.cell-group + .cell-group
+.m-cell-group + .m-cell-group
   margin-top 10px
 </style>

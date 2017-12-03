@@ -13,8 +13,10 @@
     "icons": "npm run optimize-svg && node build/icons.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "lodash": "^4.17.4",
     "simple-vue-validator": "^0.14.1",
+    "vtc": "^0.0.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="cell px-3 flex flex-row flex-ai-center flex-jc-between bg-white">
+  <div class="m-cell px-3 flex flex-row flex-ai-center flex-jc-between bg-white">
     <div class="left flex flex-ai-center">
       <slot name="icon"></slot>
       <span class="font-28" :style="[$slots.icon ? {'margin-left':'10px'}: {}]">{{text}}</span>
@@ -30,7 +30,7 @@ export default {
 </script>
 <style lang="stylus">
 @import "../../assets/styles/variable.styl"
-.cell
+.m-cell
   position relative
   min-height 96px
   .line

@@ -1,5 +1,5 @@
 <template>
-  <div class="tabbar-item flex-1 flex flex-column flex-ai-center flex-jc-center"
+  <div class="m-tabbar-item flex-1 flex flex-column flex-ai-center flex-jc-center"
     :class="[actived?'actived':'']" @click="onClick">
     <span v-if="!$slots.normal&&$parent&&$parent.imageType==='iconfont'"
       class="icon-font" :style="{fontFamily}">
@@ -48,9 +48,9 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import "../../assets/styles/variable.styl"
-.tabbar-item
+.m-tabbar-item
   height 88px
   color $color-text-secondary
   // font-weight bold
